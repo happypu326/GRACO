@@ -149,7 +149,7 @@ def run_benchmark(
         label = f"RL({algo_cfg.get('type', 'policy')}"
         label += f"/{decode_strategy}x{samples})" if decode_strategy != "greedy" else ")"
         t0 = time.time()
-        ret, obj = decode(
+        obj, ret = decode(
             env, graphs.clone(), algo, strategy=decode_strategy,
             samples=samples, temperature=temperature,
         )
